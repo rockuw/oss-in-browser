@@ -54,3 +54,4 @@ A sample app server can be found [here][ruby-sts-app-server].
 
 
 [ruby-sts-app-server]: https://github.com/rockuw/sts-app-server
+[oss-sts]: https://help.aliyun.com/document_detail/oss/practice/ram_guide.html
