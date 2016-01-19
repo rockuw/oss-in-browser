@@ -2,6 +2,8 @@
 
 Play with OSS right in the browser!
 
+![Demo](screenshot.png?raw=true "OSS in Browser")
+
 ## Setup
 
 ### Bucket setup
