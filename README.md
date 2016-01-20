@@ -24,6 +24,21 @@ access.
 
 ### App setup
 
+Fill in your appServer address and bucket name in `app-babel.js`:
+
+```js
+var appServer = '<your STS app server>';
+var bucket = '<your bucket name>';
+var region = 'oss-cn-hangzhou';
+```
+
+And then open `index.html` in your browser.
+
+### Develop
+
+If you want to make some changes in `app.js`, just go ahead using the
+awesome ES6 grammar. Before running the app you need some extra work:
+
 If you're using major versions of Chrome or Firefox, just change
 `app-babel.js` to `app.js` in this line of `index.html`:
 
