@@ -4,6 +4,12 @@ Play with OSS right in the browser!
 
 ![Demo](screenshot.png?raw=true "OSS in Browser")
 
+## Browser support
+
+- IE >= 10
+- Edge
+- Major versions of Chrome/Firefox/Safari
+
 ## Setup
 
 ### Bucket setup
