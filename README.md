@@ -6,9 +6,9 @@ Play with OSS right in the browser!
 
 ## Browser support
 
-- IE >= 10
-- Edge
+- IE >= 10 & Edge
 - Major versions of Chrome/Firefox/Safari
+- Major versions of Android/iOS/WP
 
 ## Setup
 
