@@ -71,8 +71,8 @@ After that, open `index.html` in your browser and there you go.
 
 ### STS App server
 
-A sample app server can be found [here][ruby-sts-app-server].
+A sample app server can be found [here][node-sts-app-server].
 
 
-[ruby-sts-app-server]: https://github.com/rockuw/sts-app-server
+[node-sts-app-server]: https://github.com/rockuw/node-sts-app-server
 [oss-sts]: https://help.aliyun.com/document_detail/oss/practice/ram_guide.html
