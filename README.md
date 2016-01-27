@@ -61,8 +61,7 @@ If you want more compatibility, use `babel` to transform `app.js` into
 
 ```bash
 npm install -g browserify
-npm install --save-dev babelify
-npm install babel-preset-es2015 --save-dev
+npm install babelify babel-preset-es2015
 echo '{ "presets": ["es2015"] }' > .babelrc
 browserify app.js -t babelify > app-babel.js
 ```

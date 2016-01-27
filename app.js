@@ -1,3 +1,5 @@
+'use strict';
+
 var appServer = '<your STS app server>';
 var bucket = 'your bucket name';
 var region = 'oss-cn-hangzhou';
@@ -31,8 +33,6 @@ var withStore = function (func) {
       var result = yield func(store);
 
       console.log(result);
-    }).then(function () {
-      // pass
     }).catch(function (err) {
       console.log(err);
     });
@@ -55,12 +55,7 @@ var uploadContent = function* (store) {
   var key = document.getElementById('object-key-content').value.trim() || 'object';
   console.log('content => ' + key);
 
-  var data = {
-    content: content,
-    size: content.length
-  };
-
-  var result = yield store.putData(key, data);
+  var result = yield store.put(key, new OSS.Buffer(content));
   yield listFiles(store);
 
   return result;

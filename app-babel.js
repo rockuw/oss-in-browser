@@ -2,7 +2,7 @@
 'use strict';
 
 var appServer = '<your STS app server>';
-var bucket = '<your bucket name>';
+var bucket = 'your bucket name';
 var region = 'oss-cn-hangzhou';
 
 var applyToken = regeneratorRuntime.mark(function applyToken() {
@@ -82,9 +82,7 @@ var withStore = function withStore(func) {
           }
         }
       }, _callee, this);
-    })).then(function () {
-      // pass
-    }).catch(function (err) {
+    })).catch(function (err) {
       console.log(err);
     });
   };
@@ -121,7 +119,7 @@ var uploadFile = regeneratorRuntime.mark(function uploadFile(store) {
 });
 
 var uploadContent = regeneratorRuntime.mark(function uploadContent(store) {
-  var content, key, data, result;
+  var content, key, result;
   return regeneratorRuntime.wrap(function uploadContent$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
@@ -131,22 +129,18 @@ var uploadContent = regeneratorRuntime.mark(function uploadContent(store) {
 
           console.log('content => ' + key);
 
-          data = {
-            content: content,
-            size: content.length
-          };
-          _context5.next = 6;
-          return store.putData(key, data);
+          _context5.next = 5;
+          return store.put(key, new OSS.Buffer(content));
 
-        case 6:
+        case 5:
           result = _context5.sent;
-          _context5.next = 9;
+          _context5.next = 8;
           return listFiles(store);
 
-        case 9:
+        case 8:
           return _context5.abrupt('return', result);
 
-        case 10:
+        case 9:
         case 'end':
           return _context5.stop();
       }
