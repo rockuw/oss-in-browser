@@ -17,9 +17,9 @@ Play with OSS right in the browser!
 As browser-side javascript involves CORS operations. You need to setup
 your bucket CORS rules to allow CORS operations:
 
-- include your domain in allowed origins
-- include your HTTP methods in allowed methods
-- include 'x-oss-date' and 'Authorization' in allowed headers
+- set allowed origins to '*'
+- allowed methods to 'PUT, GET, POST, DELETE, HEAD'
+- set allowed headers to '*'
 - expose 'ETag' in expose headers
 
 ### STS setup
