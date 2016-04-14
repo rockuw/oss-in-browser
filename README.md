@@ -40,34 +40,6 @@ var region = 'oss-cn-hangzhou';
 
 And then open `index.html` in your browser.
 
-### Develop
-
-If you want to make some changes in `app.js`, just go ahead using the
-awesome ES6 grammar. Before running the app you need some extra work:
-
-If you're using major versions of Chrome or Firefox, just change
-`app-babel.js` to `app.js` in this line of `index.html`:
-
-```html
-<script type="text/javascript" src="app-babel.js"></script>
-```
-
-and fill in your STS app server and bucket name, then open
-`index.html` in your browser and there you are.
-
-If you want more compatibility, use `babel` to transform `app.js` into
-`app-babel.js`, before this you must fill in your configurations in
-`app.js` first.
-
-```bash
-npm install -g browserify
-npm install babelify babel-preset-es2015 babel-runtime babel-plugin-transform-runtime
-echo '{ "presets": ["es2015"], "plugins": ["transform-runtime"] }' > .babelrc
-browserify app.js -t babelify > app-babel.js
-```
-
-After that, open `index.html` in your browser and there you go.
-
 ### STS App server
 
 A sample app server can be found [here][node-sts-app-server].
