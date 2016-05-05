@@ -44,6 +44,14 @@ And then open `index.html` in your browser.
 
 A sample app server can be found [here][node-sts-app-server].
 
+### IE Compatibility
+
+You may need include the promise polyfill for IE:
+
+```html
+<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
+```
+
 
 [node-sts-app-server]: https://github.com/rockuw/node-sts-app-server
 [oss-sts]: https://help.aliyun.com/document_detail/oss/practice/ram_guide.html
