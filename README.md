@@ -30,7 +30,7 @@ access.
 
 ### App setup
 
-Fill in your appServer address and bucket name in `app-babel.js`:
+Fill in your appServer address and bucket name in `app.js`:
 
 ```js
 var appServer = '<your STS app server>';
