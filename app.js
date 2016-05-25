@@ -18,6 +18,10 @@ var STS = OSS.STS;
 //   accessKeySecret: '<access-key-secret>',
 //   bucket: '<bucket-name>'
 // });
+//
+// var applyTokenDo = function (func) {
+//   return func(client);
+// };
 
 var applyTokenDo = function (func) {
   var url = appServer;
