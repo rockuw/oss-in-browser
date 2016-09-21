@@ -1,7 +1,7 @@
 'use strict';
 
 var appServer = 'http://localhost:3000';
-var bucket = '<bucket-name>';
+var bucket = 'js-sdk-bucket-sts';
 var region = 'oss-cn-hangzhou';
 
 var urllib = OSS.urllib;
@@ -37,8 +37,31 @@ var applyTokenDo = function (func) {
   });
 };
 
-var progress = function (p) {
+// Save multipart upload checkpoint and resume upload
+var checkPoint = null;
+// Mock error in progress function
+var mockErrorCount = 2;
+// Let the first part go. Begin mock error from the 2nd part.
+var beginMockError = null;
+
+// Retry func by `retry` times
+var retryDo = function (retry, func) {
+  return applyTokenDo(func).catch(function (err) {
+    console.log('error: %s, retry: %d', err, retry);
+    if (retry > 1) {
+      return retryDo(--retry, func);
+    }
+  });
+};
+
+var progress = function (p, cpt) {
+  if (beginMockError && mockErrorCount-- > 0) {
+    throw new Error('mock error');
+  }
+  beginMockError = true;
+
   return function (done) {
+    checkPoint = cpt; // Save checkpoint here
     var bar = document.getElementById('progress-bar');
     bar.style.width = Math.floor(p * 100) + '%';
     bar.innerHTML = Math.floor(p * 100) + '%';
@@ -52,7 +75,8 @@ var uploadFile = function (client) {
   console.log(file.name + ' => ' + key);
 
   return client.multipartUpload(key, file, {
-    progress: progress
+    progress: progress,
+    checkpoint: checkPoint,
   }).then(function (res) {
     console.log('upload success: %j', res);
     return listFiles(client);
@@ -115,7 +139,7 @@ var downloadFile = function (client) {
 
 window.onload = function () {
   document.getElementById('file-button').onclick = function () {
-    applyTokenDo(uploadFile);
+    retryDo(3, uploadFile);
   }
 
   document.getElementById('content-button').onclick = function () {
